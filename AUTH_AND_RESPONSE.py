@@ -58,11 +58,16 @@ class TwoFactorAuth:
         # otp generation
         the_OTP = self.GeneratedOTP
         # phone number
-        phoneNumber = []
+        phoneNumber = ["+254705379181"]
 
         # sms
         self.sms = africastalking.SMS
         # response
-        self.OTPMessage = self.sms.send(f"Here is your OTP {the_OTP} do not share it with anyone", phoneNumber)  # user defined phone number
+        self.OTPMessage = self.sms.send(f"Here is your OTP {the_OTP} do not share it with anyone", ["+254705379181"])  # user defined phone number
 
-        return (self.OTPMessage, wlt.verificationKey)
+        return self.OTPMessage
+
+
+if __name__ == "__main__":
+    tf = TwoFactorAuth()
+    tf.OTP()
